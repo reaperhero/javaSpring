@@ -38,6 +38,15 @@
     <input type="submit" value="提交">
 </form>
 
+
+<h2>时间类型转化测试</h2>
+<form action="param/saveUser" method="post">
+    账户 <input type="text" name="uname"/><br/>
+    年龄 <input type="text" name="age"/><br/>
+    生日 <input type="text" name="date"><br/>
+    <input type="submit" value="提交">
+</form>
+
 </body>
 
 </body>
