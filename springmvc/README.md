@@ -84,7 +84,6 @@ required：是否必须有此消息头
 - 返回值是ModelAndView
 - 请求转发、重定向
 
-
 ## 类型转换器
 
 网页传参都是String格式，而SpringMVC在传参的过程中自动进行了类型转换,但是也有个别案例。如：默认可转换的日期格式为 yyyy/MM/dd，如果输入日期格式为 yyyy-MM-dd，则会报错。SpringMVC为我们提供了一个接口，用于我们自己编写转换代码
@@ -104,3 +103,4 @@ required：是否必须有此消息头
 <!--开启springmvc框架注解支持  手动开启类型转换-->
 <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
 ```
+
