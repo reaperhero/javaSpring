@@ -24,6 +24,59 @@ params:指定限制请求参数的条件,它支持简单的表达式,属性只�
     params = {"money！100"}，表示请求参数中的money不能是100
 ```
 
+@RequestParam()
+```
+value：请求参数中的名称,当添加了注解之后，网页传参的参数名称必须与注解中的一致，否则会报错
+required：请求参数中是否必须提供此参数。默认值为true。表示必须提供，不提供会出错
+```
+
+@RequestBody()
+```
+作用：用于获取请求体内容。直接使用得到的是 key=value&key=value结构的数据,用于post请求，get方式不适用
+required：是否必须有请求体，默认为true。 当取值为true时，get请求方式会报错。如果取值为false，get请求得到的是null
+```
+
+@PathVariable()
+```
+作用：用于绑定url中的占位符。例如：请求url中/delete/{id}，这个{id}就是占位符
+value：用于指定url中占位符的位置
+required：是否必须提供占位符
+```
+
+@CookieValue()
+```
+作用：用于把指定cookie名称的值传入控制器方法参数
+value：指定cookie的名称
+required：是否必须有cookie
+```
+
+@ModelAttribute()
+```
+作用：该注解是springmvc4.3版本之后加入的，他可以用于修饰方法和参数
+
+出现在方法上：表示当前方法会在控制器执行之前执行。它可以修饰没有返回值的方法，也可以修饰有具体返回值的方法
+出现在参数上，获取指定的数据给参数赋值
+
+value：用于获取数据的key。key可以是POJO的属性名称，也可以是map结构的key
+```
+
+@SessionAttributes()
+```
+作用：需要在类上加SessionAttributes注解，用于多次执行控制器方法间的参数共享
+
+value：用于指定存入的属性名称
+type：用于指定存入的数据类型
+
+
+```
+
+
+@RequestHeader()
+```
+作用：用于获取请求消息头
+value：提供消息头名称
+required：是否必须有此消息头
+```
 
 ## 类型转换器
 

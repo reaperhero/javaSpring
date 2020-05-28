@@ -5,7 +5,7 @@
   Time: 7:04 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <title>Title</title>
@@ -46,6 +46,43 @@
     生日 <input type="text" name="date"><br/>
     <input type="submit" value="提交">
 </form>
+
+
+<h2>@RequestParam()测试</h2>
+<a href="anno/testRequestParam?name=haha">testRequestParam</a>
+
+
+<h2>@RequestBody()测试</h2>
+<form action="anno/testRequestBody" method="post">
+    用户：<input type="text" name="username"><br/>
+    密码：<input type="text" name="password"><br/>
+    <input type="submit" value="提交">
+</form>
+
+
+<h2>@PathVariable()测试</h2>
+<a href="anno/testPathVariable/10">testPathVariable</a>
+
+<h2>@RequestHeader()测试</h2>
+<a href="anno/testRequestHeader">testRequestHeader</a>
+
+
+<h2>@CookieValue()测试</h2>
+<a href="anno/testCookieValue">testCookieValue</a>
+
+
+<h2>@ModelAttribute()测试</h2>
+<form action="anno/testModelAttribute" method="post">
+    用户：<input type="text" name="uname"><br/>
+    年龄：<input type="text" name="age"><br/>
+    <input type="submit" value="提交">
+</form>
+
+<h2>@SessionAttributes()测试</h2>
+<a href="anno/testSessionAttributes">testSessionAttributes</a>
+<a href="anno/getSessionAttributes">getSessionAttributes</a>
+<a href="anno/delSessionAttributes">delSessionAttributes</a>
+
 
 </body>
 

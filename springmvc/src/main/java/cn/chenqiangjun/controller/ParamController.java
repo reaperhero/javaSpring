@@ -5,6 +5,12 @@ import cn.chenqiangjun.domain.Account;
 import cn.chenqiangjun.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("param")
@@ -30,5 +36,23 @@ public class ParamController {
         System.out.println(user);
         return "success";
     }
+
+
+    @RequestMapping("getServlet")
+    public String getServlet(HttpServletRequest request, HttpServletResponse response){
+        System.out.println("执行了");
+        System.out.println(request);
+
+        HttpSession session = request.getSession();
+        System.out.println(session);
+
+        ServletContext servletContext = session.getServletContext();
+        System.out.println(servletContext);
+
+        System.out.println(response);
+        return "success";
+    }
+
+
 
 }
