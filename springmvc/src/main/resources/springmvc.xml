@@ -20,6 +20,10 @@
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <!--前端控制器，哪些资源不拦截-->
+    <mvc:resources location="/js/" mapping="/js/**" ></mvc:resources>
+    <mvc:resources location="/css/" mapping="/css/**" ></mvc:resources>
+    <mvc:resources location="/images/" mapping="/images/**" ></mvc:resources>
 
     <!-- 自定义类型转化-->
     <bean id="conversionServiceFactoryBean" class="org.springframework.context.support.ConversionServiceFactoryBean">
@@ -30,6 +34,7 @@
             </set>
         </property>
     </bean>
+
 
     <!--开启springmvc框架注解支持  手动开启类型转换-->
     <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>

@@ -66,8 +66,6 @@ value：用于获取数据的key。key可以是POJO的属性名称，也可以�
 
 value：用于指定存入的属性名称
 type：用于指定存入的数据类型
-
-
 ```
 
 
@@ -77,6 +75,15 @@ type：用于指定存入的数据类型
 value：提供消息头名称
 required：是否必须有此消息头
 ```
+
+
+## 响应和结果视图
+
+- 返回值是String类型: 内部的实现原理还是ModelAndView
+- 返回值是void类型: 会默认寻找与请求路径相同的jsp，可以用原生servlet响应
+- 返回值是ModelAndView
+- 请求转发、重定向
+
 
 ## 类型转换器
 
