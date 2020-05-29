@@ -104,3 +104,8 @@ required：是否必须有此消息头
 <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
 ```
 
+
+## 异常处理器
+
+![](../images/05.bmp)
+

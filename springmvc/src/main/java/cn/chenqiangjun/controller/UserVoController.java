@@ -1,6 +1,7 @@
 package cn.chenqiangjun.controller;
 
 import cn.chenqiangjun.domain.UserVo;
+import cn.chenqiangjun.utiles.SysException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,13 +19,13 @@ import java.io.IOException;
 public class UserVoController {
 
     @RequestMapping("testString")
-    public String testString(Model model){
+    public String testString(Model model) {
         System.out.println("testString执行了");
         UserVo userVo = new UserVo();
         userVo.setUsername("陈强军");
         userVo.setAge(20);
         // model对象
-        model.addAttribute("user",userVo);
+        model.addAttribute("user", userVo);
         userVo.setPassword("123ds45");
         return "uservo";
     }
@@ -49,7 +50,7 @@ public class UserVoController {
     }
 
     @RequestMapping("testModelAndView")
-    public ModelAndView testModelAndView(){
+    public ModelAndView testModelAndView() {
         // 创建对象
         System.out.println("testModelAndView执行了");
         ModelAndView mv = new ModelAndView();
@@ -58,7 +59,7 @@ public class UserVoController {
         userVo.setAge(20);
         userVo.setPassword("asdsada");
         // 把uservo对象加入到mv中
-        mv.addObject("user",userVo);
+        mv.addObject("user", userVo);
 
         // 跳转到哪个页面
         mv.setViewName("uservo");
@@ -66,27 +67,26 @@ public class UserVoController {
     }
 
     @RequestMapping("testForwardOrRedirect")
-    public String testForwardOrRedirect(){
+    public String testForwardOrRedirect() {
         System.out.println("testForwardOrRedirect执行了。。");
 
         // 请求转发
-        // return "forward:/WEB-INF/pages/success.jsp";
+        return "forward:/WEB-INF/pages/success.jsp";
 
         // 重定向
-        return "redirect:/userui.jsp";
+        // return "redirect:/userui.jsp";
     }
 
 
-
     /**
-     * @RequestBody：服务器接收到的json格式的数据解析成实体类型
-     * @ResponseBody：服务器响应时将返回的数据解析成json格式
-     *
      * @param uservo
      * @return
+     * @RequestBody：服务器接收到的json格式的数据解析成实体类型
+     * @ResponseBody：服务器响应时将返回的数据解析成json格式
      */
     @RequestMapping("testAjax")
-    public @ResponseBody UserVo testAjax(@RequestBody String body,UserVo userVo){
+    public @ResponseBody
+    UserVo testAjax(@RequestBody String body, UserVo userVo) {
         System.out.println("testAjax执行了。。");
         System.out.println(body);
         // 做响应，模拟查询数据库
@@ -94,6 +94,20 @@ public class UserVoController {
         userVo.setPassword("response-pws");
         userVo.setAge(25);
         return userVo;
+    }
+
+    @RequestMapping("/testException")
+    public String testException() throws SysException {
+        System.out.println("testException执行了...");
+
+        // 模拟异常，前端控制器抛出异常
+        try {
+            int a = 10 / 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SysException("查询用户出错");
+        }
+        return "success";
     }
 
 }

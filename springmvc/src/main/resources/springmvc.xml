@@ -40,6 +40,10 @@
         </property>
     </bean>
 
+    <!--配置异常处理器-->
+    <bean id="sysExceptionResolver" class="cn.chenqiangjun.utiles.SysExceptionResolver"></bean>
+
+
 
     <!--开启springmvc框架注解支持  手动开启类型转换-->
     <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
