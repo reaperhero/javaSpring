@@ -14,6 +14,7 @@
         <module>mybatis-curd</module>
         <module>datasourceAndTx</module>
         <module>one2many</module>
+        <module>many2many</module>
     </modules>
 
 
