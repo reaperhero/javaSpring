@@ -16,6 +16,7 @@
         <module>one2many</module>
         <module>many2many</module>
         <module>jndi</module>
+        <module>lazy</module>
     </modules>
 
 

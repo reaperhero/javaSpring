@@ -59,7 +59,8 @@ CREATE TABLE `account` (
   `uid` int(11) DEFAULT NULL,
   `money` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
+insert into `account`(uid, money) values (41,20);
 
 
