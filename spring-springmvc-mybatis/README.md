@@ -1,6 +1,8 @@
-# springmvc 整合 spring
-
-
-## 原理解析
+## springmvc 整合 spring原理解析
 
 启动tomcat服务器的时候，需要加载spring的配置文件：ServletContext域对象在tomcat启动的时候会被创建；一类监听器需要去监听ServletContext域对象的创建和销毁，监听器去加载spring的配置文件，创建WEB版工厂，存储ServletContext对象
+
+
+## spring整合 mabatis原理解析
+
+在applicaConteext文件中配置mybatis的配置，IOC容器在启动的时候会自动创建maybatis的工厂对象，通过工厂对象可以创建session，通过session可以创建代理，最后把代理存入IOC容器当中
