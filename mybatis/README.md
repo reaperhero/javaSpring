@@ -18,3 +18,19 @@
 自定义Mybatis框架流程
 
 ![](https://img-blog.csdnimg.cn/20200127102223857.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ExMDkyODgyNTgw,size_16,color_FFFFFF,t_70#pic_center)
+
+
+
+## 参数类型
+
+- 传递简单类型
+
+
+- 创建实体类对象
+
+Mybatis使用OGNL表达式，自动解析对象字段的值，${}或者${}括号中的值为实体类对象属性名字
+
+- pojo 包装类进行查询
+
+Object Graphic Navigation Language ，即对象图导航语言。它是通过对象的取值方法来获取数据。在写法上把get给省略了。
+使用场景：在开发中如果想实现复杂查询 ，查询条件不仅包括用户查询条件，还包括其它的查询条件（比如将用户购买商品信息也作为查询条件），这时可以使用 pojo 包装对象传递输入参数

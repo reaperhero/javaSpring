@@ -1,5 +1,8 @@
 import cn.chenqiangjun.dao.IUserDao;
+import cn.chenqiangjun.dao.IUserDaoMap;
+import cn.chenqiangjun.domain.QueryVo;
 import cn.chenqiangjun.domain.User;
+import cn.chenqiangjun.domain.UserMap;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,7 +11,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
@@ -144,5 +146,33 @@ public class MybatisTest {
         System.out.println("用户总记录数为 ： " + count);
     }
 
+
+    /**
+     * 测试根据Vo查询
+     */
+    @Test
+    public void testListUsersByVo(){
+        // 4. 使用 SqlSession 创建 Mapper 的代理对象
+        IUserDao iUserDao = sqlSession.getMapper(IUserDao.class);
+        QueryVo vo = new QueryVo();
+        User user = new User();
+        user.setUsername("王");
+        vo.setUser(user);
+
+        List<User> users = iUserDao.listUsersByVo(vo);
+        users.forEach(System.out::println);
+    }
+
+
+    @Test
+    public void testFindAllMap() {
+        // 4. 使用 SqlSession 创建 Mapper 的代理对象
+        IUserDaoMap iUserDaoMap = sqlSession.getMapper(IUserDaoMap.class);
+        // 5. 使用代理对象执行查询
+        List<UserMap> userMaps = iUserDaoMap.findAllMap();
+        for (UserMap user : userMaps) {
+            System.out.println(user);
+        }
+    }
 
 }

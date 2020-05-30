@@ -1,5 +1,6 @@
 package cn.chenqiangjun.dao;
 
+import cn.chenqiangjun.domain.QueryVo;
 import cn.chenqiangjun.domain.User;
 
 import java.util.List;
@@ -57,5 +58,17 @@ public interface IUserDao {
      * @return
      */
     int countUser();
+
+
+
+
+    /**
+     * 根据查询条件模糊查询用户
+     *
+     * @param vo
+     * @return
+     */
+    List<User> listUsersByVo(QueryVo vo);
+
 }
 

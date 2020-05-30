@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.chenqiangjun.dao.IUserDaoMap">
+
+    <resultMap id="userMap" type="cn.chenqiangjun.domain.UserMap">
+        <id property="userId" column="id" />
+        <result property="userName" column="username"/>
+        <result property="userBirthday" column="birthday"/>
+        <result property="userAddress" column="address"/>
+        <result property="userSex" column="sex"/>
+    </resultMap>
+
+    <!-- 配置查询所有用户 -->
+    <!--<select id="findAllMap" resultType="cn.chenqiangjun.domain.UserMap">-->
+    <!--    SELECT id AS userId, username AS userName, birthday AS userBirthday, sex AS userSex, address AS userAddress FROM user-->
+    <!--</select>-->
+    <select id="findAllMap" resultMap="userMap">
+        SELECT * FROM user
+    </select>
+
+
+
+</mapper>

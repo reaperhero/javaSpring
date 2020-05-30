@@ -30,5 +30,7 @@
     <!-- 指定映射文件 -->
     <mappers>
         <mapper resource="cn/chenqiangjun/dao/IUserDao.xml"/>
+        <mapper resource="cn/chenqiangjun/dao/IUserDaoMap.xml"/>
     </mappers>
+
 </configuration>
