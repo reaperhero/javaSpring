@@ -40,6 +40,43 @@ Object Graphic Navigation Language ，即对象图导航语言。它是通过对
 ## 数据源
 
 UNPOOLED ： 不使用连接池的数据源。采用传统的 javax.sql.DataSource 规范中的连接池，Mybatis 中有针对规范的实现
+
 POOLED ： 使用连接池的数据源。采用池的思想
+
 JNDI ： 使用 JNDI 实现的数据源，采用服务器提供的 JNDI 技术实现，来获取 DataSource 对象，不同的服务器所能拿到的 DataSource 是不一样的。
+
+
+## 动态SQL
+
+- if标签
+
+```
+<select id="findUserByCondition" resultMap="User" parameterType="User">
+    select * from user
+    <where>
+        <if test="userName != null">
+            and username = #{userName}
+        </if>
+        <if test="userSex != null">
+            and sex = #{userSex}
+        </if>
+    </where>
+</select>
+```
+
+- foreach
+
+```
+<select id="findUserInIds" resultMap="User" parameterType="User">
+    select * from user
+    <where>
+        <if test="ids != null and ids.size()>0">
+            <foreach collection="ids" open="and id in (" close=")" item="uid" separator=",">
+                #{uid}
+            </foreach>
+        </if>
+    </where>
+</select>
+```
+
 
