@@ -1,12 +1,14 @@
 springmvc/.idea
 springmvc/target
-
 springmvc-interceptor/.idea
 springmvc-interceptor/target
-
+mybatis/.idea
+mybatis/*/.idea
+mybatis/*/target
+mybatis/*/*.log
 */target
 */.idea
 */*.log
 
 */*/target
-*/*/*log
+*/*/*.log
