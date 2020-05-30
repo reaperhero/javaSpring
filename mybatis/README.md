@@ -34,3 +34,12 @@ Mybatis使用OGNL表达式，自动解析对象字段的值，${}或者${}括号
 
 Object Graphic Navigation Language ，即对象图导航语言。它是通过对象的取值方法来获取数据。在写法上把get给省略了。
 使用场景：在开发中如果想实现复杂查询 ，查询条件不仅包括用户查询条件，还包括其它的查询条件（比如将用户购买商品信息也作为查询条件），这时可以使用 pojo 包装对象传递输入参数
+
+
+
+## 数据源
+
+UNPOOLED ： 不使用连接池的数据源。采用传统的 javax.sql.DataSource 规范中的连接池，Mybatis 中有针对规范的实现
+POOLED ： 使用连接池的数据源。采用池的思想
+JNDI ： 使用 JNDI 实现的数据源，采用服务器提供的 JNDI 技术实现，来获取 DataSource 对象，不同的服务器所能拿到的 DataSource 是不一样的。
+

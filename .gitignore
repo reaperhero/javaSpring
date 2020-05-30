@@ -11,4 +11,5 @@ mybatis/*/*.log
 */*.log
 
 */*/target
-*/*/*.log
+*/target
+*/*/*log

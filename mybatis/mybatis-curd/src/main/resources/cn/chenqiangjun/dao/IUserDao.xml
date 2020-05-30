@@ -6,8 +6,9 @@
 <mapper namespace="cn.chenqiangjun.dao.IUserDao">
 
 
+
     <!-- 配置查询所有用户 -->
-    <select id="findAll" resultType="cn.chenqiangjun.domain.User">
+    <select id="findAll" resultType="User">
         SELECT * FROM user
     </select>
     <!-- 添加用户,并用 LAST_INSERT_ID函数自动获取数据库id-->

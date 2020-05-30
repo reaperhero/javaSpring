@@ -6,8 +6,6 @@
 <configuration>
 
 
-
-
     <!-- 全局变量 -->
     <properties>
         <property name="driver" value="com.mysql.jdbc.Driver"/>
@@ -18,9 +16,6 @@
 
     <!--使用typealiases配置别名，它只能配置domain中类的别名-->
     <typeAliases>
-        <!--单个类配置别名-->
-        <!--<typeAlias type="cn.chenqiangjun.domain.User" alias="user"></typeAlias>-->
-        <!--包级别的别名，类名就是别名-->
         <package name="cn.chenqiangjun.domain"></package>
     </typeAliases>
 
@@ -41,8 +36,7 @@
 
     <!-- 指定映射文件 -->
     <mappers>
-        <mapper resource="cn/chenqiangjun/dao/IUserDao.xml"/>
-        <mapper resource="cn/chenqiangjun/dao/IUserDaoMap.xml"/>
+        <package name="cn.chenqiangjun.dao"/>
     </mappers>
 
 </configuration>

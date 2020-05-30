@@ -12,6 +12,7 @@
         <module>mybatis-build</module>
         <module>mybatis-annotation</module>
         <module>mybatis-curd</module>
+        <module>datasourceAndTx</module>
     </modules>
 
 
