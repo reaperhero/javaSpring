@@ -7,3 +7,6 @@ springmvc-interceptor/target
 */target
 */.idea
 */*.log
+
+*/*/target
+*/*/*log
