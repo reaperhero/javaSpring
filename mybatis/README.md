@@ -43,7 +43,7 @@ UNPOOLED ： 不使用连接池的数据源。采用传统的 javax.sql.DataSour
 
 POOLED ： 使用连接池的数据源。采用池的思想
 
-JNDI ： 使用 JNDI 实现的数据源，采用服务器提供的 JNDI 技术实现，来获取 DataSource 对象，不同的服务器所能拿到的 DataSource 是不一样的。
+JNDI ： 使用 JNDI 实现的数据源，采用服务器提供的 JNDI 技术实现，来获取 DataSource 对象，不同的服务器所能拿到的 DataSource 是不一样的。JNDI在Junit单元测试是无法使用的，只能在jsp页面中调用
 
 
 ## 动态SQL

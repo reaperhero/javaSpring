@@ -15,6 +15,7 @@
         <module>datasourceAndTx</module>
         <module>one2many</module>
         <module>many2many</module>
+        <module>jndi</module>
     </modules>
 
 

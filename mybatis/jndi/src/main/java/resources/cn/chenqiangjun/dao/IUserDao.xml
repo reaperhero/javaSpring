@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.chenqiangjun.dao.IUserDao">
+
+
+    <!-- 添加用户,并用 LAST_INSERT_ID函数自动获取数据库id-->
+    <insert id="saveUser" parameterType="cn.chenqiangjun.domain.User">
+        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO user(username,birthday,sex,address) VALUES (#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+
+
+
+
+</mapper>
