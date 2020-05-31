@@ -10,3 +10,10 @@
 */*/.settings/
 */target
 */*/target
+
+*/*/*.iml
+*/*/*/*.iml
+*/*.iml
+
+*/*/.idea
+*/.idea
