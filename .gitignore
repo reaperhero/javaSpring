@@ -8,8 +8,16 @@ mybatis/*/target
 mybatis/*/*.log
 */target
 */.idea
+*/*/.idea
+
 */*.log
 
 */*/target
 */target
 */*/*log
+
+
+*/.idea
+*/*/.idea
+*/out
+*/*/out
