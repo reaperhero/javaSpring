@@ -1,4 +1,6 @@
+import cn.chenqiangjun.dao.IAccountDao;
 import cn.chenqiangjun.dao.IUserDao;
+import cn.chenqiangjun.domain.Account;
 import cn.chenqiangjun.domain.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.io.Resources;
@@ -20,6 +22,7 @@ public class TestMybatis {
     private SqlSessionFactory factory;
     private SqlSession session;
     private IUserDao userDao;
+    private IAccountDao iAccountDao;
 
     @Before
     public  void init()throws Exception{
@@ -27,6 +30,7 @@ public class TestMybatis {
         factory = new SqlSessionFactoryBuilder().build(in);
         session = factory.openSession();
         userDao = session.getMapper(IUserDao.class);
+        iAccountDao = session.getMapper(IAccountDao.class);
     }
 
     @After
@@ -98,4 +102,32 @@ public class TestMybatis {
         System.out.println(user);
     }
 
+
+    /*
+    * 查询Account的同时，立即查询出所属的用户信息
+    *
+    * */
+    @Test
+    public void testFindAllAccountWithUid(){
+        List<Account> accounts = iAccountDao.findAll();
+        for(Account account : accounts){
+            System.out.println("----每个账户的信息-----");
+            System.out.println(account);
+            System.out.println(account.getUser());
+        }
+    }
+    /*
+     * 查询Account的同时，延迟查询出所属的用户信息
+     *
+     * */
+    @Test
+    public void testFindAllUserWithAid(){
+        List<User> users = userDao.findAllWithAccount();
+        for(User user : users){
+            System.out.println("----每个账户的信息-----");
+            System.out.println(user);
+            System.out.println(user.getAccounts());
+        }
+
+    }
 }

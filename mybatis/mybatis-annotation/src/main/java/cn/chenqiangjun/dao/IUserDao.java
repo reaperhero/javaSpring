@@ -92,5 +92,25 @@ public interface IUserDao {
     @ResultMap(value = {"userMap"})
     User findByIdWithResultMap(Integer userId);
 
+
+    /**
+     * 查询所有用户
+     * @return
+     * column = "id" 使用user id 去account查询账户信息
+     * FetchType.LAZY 延迟加载
+     */
+    @Select("select * from user")
+    @Results(id="userAccountMap",value={
+            @Result(id=true,column = "id",property = "id"),
+            @Result(column = "username",property = "username"),
+            @Result(column = "address",property = "address"),
+            @Result(column = "sex",property = "sex"),
+            @Result(column = "birthday",property = "birthday"),
+            @Result(property = "accounts",column = "id",
+                    many = @Many(select = "cn.chenqiangjun.dao.IAccountDao.findAccountByUid",
+                            fetchType = FetchType.LAZY))
+    })
+    List<User> findAllWithAccount();
+
 }
 
