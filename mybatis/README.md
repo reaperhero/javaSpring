@@ -102,3 +102,26 @@ JNDI ： 使用 JNDI 实现的数据源，采用服务器提供的 JNDI 技术�
 - 延迟加载
 
 在真正使用数据的时候才发起查询，不用的时候不查询，按需加载（懒加载）
+
+使用场景：
+一对多，多对多：通常使用延迟加载
+多对一，一对1：通常使用立即加载
+
+
+## 缓存
+
+一级缓存：
+
+它指的是Mybatis中SqlSession对象的缓存。
+当我们执行查询之后，查询的结果会同时存入到SqlSession为我们提供一块区域中。
+该区域的结构是一个Map。当我们再次查询同样的数据，mybatis会先去sqlsession中
+查询是否有，有的话直接拿出来用。
+当SqlSession对象消失时，mybatis的一级缓存也就消失了。
+		
+二级缓存:
+
+它指的是Mybatis中SqlSessionFactory对象的缓存。由同一个SqlSessionFactory对象创建的SqlSession共享其缓存。
+二级缓存的使用步骤：
+    第一步：让Mybatis框架支持二级缓存（在SqlMapConfig.xml中配置）
+    第二步：让当前的映射文件支持二级缓存（在IUserDao.xml中配置）
+    第三步：让当前的操作支持二级缓存（在select标签中配置）
